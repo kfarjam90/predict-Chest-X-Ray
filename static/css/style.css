@@ -1,0 +1,178 @@
+body {
+    font-family: 'Calibri', Arial, sans-serif;
+    line-height: 1.6;
+    color: #102C42;
+    background-color: #e9eef2;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.header-image {
+    max-width: 50%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: 28px;
+    color: #102C42;
+    margin-bottom: 10px;
+}
+
+.upload-section {
+    background-color: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+}
+
+.file-input {
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.file-input input[type="file"] {
+    position: absolute;
+    left: -9999px;
+}
+
+.file-input label {
+    display: block;
+    padding: 15px;
+    background-color: #f0f0f0;
+    border: 2px dashed #ccc;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.file-input label:hover {
+    background-color: #e0e0e0;
+}
+
+.predict-btn {
+    background-color: #102C42;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: 100%;
+}
+
+.predict-btn:hover {
+    background-color: #1a3d5a;
+}
+
+.info-section {
+    background-color: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+}
+
+.info-section h2 {
+    color: #102C42;
+    margin-top: 0;
+}
+
+.info-section ul {
+    padding-left: 20px;
+}
+
+.result-section {
+    background-color: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+}
+
+.probability-chart {
+    margin: 20px 0;
+}
+
+.probability-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.class-name {
+    width: 120px;
+    font-weight: bold;
+}
+
+.progress-bar {
+    flex-grow: 1;
+    height: 20px;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    margin: 0 10px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background-color: #102C42;
+    border-radius: 10px;
+}
+
+.percentage {
+    width: 50px;
+    text-align: right;
+}
+
+.interpretation {
+    background-color: #f8f9fa;
+    padding: 15px;
+    border-radius: 5px;
+    margin: 20px 0;
+}
+
+.back-btn {
+    display: inline-block;
+    background-color: #102C42;
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.back-btn:hover {
+    background-color: #1a3d5a;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+    
+    .probability-row {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .progress-bar {
+        width: 100%;
+        margin: 5px 0;
+    }
+}

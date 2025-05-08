@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chest X-Ray Classification</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <img src="{{ url_for('static', filename='images/cover_image.png') }}" alt="Brain Tumor Classification" class="header-image">
+            <h1>Enhanced Chest X-Ray Classification</h1>
+            <p>Upload an Chest X-Ray image to classify it as normal or identify tumor types</p>
+        </header>
+        
+        <div class="upload-section">
+            <form method="POST" action="/predict" enctype="multipart/form-data">
+                <div class="file-input">
+                    <input type="file" name="file" id="file" accept="image/*" required>
+                    <label for="file">Choose an X-Ray image...</label>
+                </div>
+                <button type="submit" class="predict-btn">Classify Image</button>
+            </form>
+        </div>
+        
+        <div class="info-section">
+            <h2>About the Project</h2>
+            <p>This web application uses a deep learning model (ResNet50V2) trained on a dataset of MRI brain images to classify them into four categories:</p>
+            <ul>
+                <li><strong>COVID-19:</strong> Signs of viral pneumonia, ground-glass opacities, or bilateral lung infiltrates.</li>
+                <li><strong>NORMAL:</strong> No abnormalities detected in the X-ray</li>
+                <li><strong>PNEUMONIA:</strong> Consolidation, lobar infiltrates, or other signs of lung infection</li>
+                <li><strong>TUBERCULOSIS:</strong> Cavitary lesions, hilar lymphadenopathy, or miliary patterns</li>
+            </ul>
+            <p>The model was trained to ensure high performance even on low-quality images, promoting excellent generalization for diverse healthcare settings.</p>
+        </div>
+    </div>
+</body>
+</html>

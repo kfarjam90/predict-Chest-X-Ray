@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classification Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Classification Result</h1>
+        </header>
+        
+        <div class="result-section">
+            <h2>Prediction: {{ prediction }} ({{ confidence }}% confidence)</h2>
+            
+            <div class="result-details">
+                <div class="probability-chart">
+                    <h3>Probability Distribution:</h3>
+                    {% for i in range(class_names|length) %}
+                    <div class="probability-row">
+                        <span class="class-name">{{ class_names[i] }}</span>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: {{ probabilities[i] }}%"></div>
+                        </div>
+                        <span class="percentage">{{ probabilities[i] }}%</span>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            
+            <div class="interpretation">
+                <h3>What does this mean?</h3>
+                {% if prediction == 'COVID19' %}
+                    <p>The X-ray findings are suggestive of COVID-19, showing bilateral ground-glass opacities and/or pulmonary infiltrates. However, these findings may overlap with other respiratory conditions. Clinical correlation and PCR testing are advised for a definitive diagnosis..</p>
+                {% elif prediction == 'NORMAL' %}
+                    <p>No abnormalities were detected in the X-ray image. However, please consult with a medical professional for a definitive diagnosis and further evaluation if symptoms persist.</p>
+                {% elif prediction == 'PNEUMONIA' %}
+                    <p>The X-ray reveals consolidation and lobar infiltrates consistent with pneumonia. Further evaluation (e.g., sputum culture, clinical assessment) is recommended to identify the causative agent and guide treatment.</p>
+                {% elif prediction == 'TURBERCULOSIS' %}
+                    <p>The X-ray demonstrates cavitary lesions, hilar lymphadenopathy, or miliary patterns, which may indicate tuberculosis. Confirmatory testing (e.g., AFB smear, GeneXpert, or culture) and consultation with a specialist are strongly advised.</p>
+                {% endif %}
+                <p><strong>Note:</strong> This is an AI-assisted prediction and should not replace professional medical diagnosis.</p>
+            </div>
+            
+            <a href="/" class="back-btn">Analyze Another Image</a>
+        </div>
+    </div>
+</body>
+</html>
